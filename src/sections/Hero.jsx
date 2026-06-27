@@ -1,14 +1,33 @@
 import Button from "../components/Button"
+import HeroExperience from "../components/HeroModels/HeroExperience"
 import { words } from "../constants"
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative overflow-hidden">
-        <div className="absolute top-0 left-0 z-10">
+    <section id="hero" className="relative overflow-hidden min-h-screen">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+            <video 
+                autoPlay 
+                loop 
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+            >
+                <source src="/videos/Pake ini.mp4" type="video/mp4" />
+                {/* Backup jika video tidak support */}
+                <img src="/images/bg.png" alt="background" />
+            </video>
+            {/* Overlay gelap agar teks terbaca */}
+            <div className="absolute inset-0 bg-black/50"></div>
+        </div>
+
+        {/* Background Image (opsional, sebagai fallback) */}
+        <div className="absolute top-0 left-0 z-0 opacity-0">
             <img src="/images/bg.png" alt="background" />
         </div>
 
-        <div className="hero-layout">
+        <div className="hero-layout relative z-10">
             {/*left: Hero content*/}
             <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
                 <div className="flex flex-col gap-7">
@@ -29,11 +48,21 @@ const Hero = () => {
                         <h1>Metamor Interior</h1>
                     </div>
                     <p className="text-white-50 md:text-lx relative z-10 pointer-events-none">Kami tidak sekadar menjual lampu atau mendesain ruangan, kami mampu mewujudkan visual yang lahir dari mimpi terbaik Anda</p>
-                    <Button/>
+                    <Button 
+                        className="md:w-80 md:h-16 w-60 h-12"
+                        id="button"
+                        text="Tentang Kami"
+                    />
                 </div>
             </header>
+            {/*right: Hero content*/}
+            <figure>
+                <div className="hero-3d-layout">
+                    <HeroExperience/>
+                </div>
+            </figure>
         </div>
-        </section>
+    </section>
   )
 }
 

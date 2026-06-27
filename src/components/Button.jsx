@@ -1,9 +1,10 @@
-const Button = () => {
+const Button = ({ text, className, id }) => {
+
   return (
-    <a className="cta-wrapper">
-        <div className="cta-group group">
+    <a className={`${className ?? ''} cta-wrapper`}>
+        <div className="cta-button group">
             <div className="bg-circle"/>
-            <p className="cta-text">Hubungi Kami</p>
+            <p className="text">{text}</p>
             <div className="arrow-wrapper">
              <img src="/images/arrow-down.svg" alt="arrow"/>
             </div>
@@ -11,5 +12,4 @@ const Button = () => {
     </a>
   )
 }
-
 export default Button
