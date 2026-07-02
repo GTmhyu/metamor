@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import AnimatedCounter from '../components/AnimatedCounter'
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -47,11 +46,6 @@ const Showcase = () => {
     return (
         <div id="work" ref={sectionRef} className="app-showcase">
             <div className="w-full">
-                {/* AnimatedCounter di paling atas */}
-                <div className="w-full flex justify-center">
-                    <AnimatedCounter />
-                </div>
-
                 {/* Layout konten di bawahnya */}
                 <div className="showcaselayout">
                     {/* Left */}
