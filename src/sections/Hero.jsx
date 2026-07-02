@@ -1,31 +1,40 @@
+import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button"
 import HeroExperience from "../components/HeroModels/HeroExperience"
 import { words } from "../constants"
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 const Hero = () => {
-  return (
-    <section id="hero" className="relative overflow-hidden min-h-screen">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-            <video 
-                autoPlay 
-                loop 
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-            >
-                <source src="/videos/Pake ini.mp4" type="video/mp4" />
-                {/* Backup jika video tidak support */}
-                <img src="/images/bg.png" alt="background" />
-            </video>
-            {/* Overlay gelap agar teks terbaca */}
-            <div className="absolute inset-0 bg-black/50"></div>
-        </div>
-
-        {/* Background Image (opsional, sebagai fallback) */}
-        <div className="absolute top-0 left-0 z-0 opacity-0">
-            <img src="/images/bg.png" alt="background" />
-        </div>
+    useGSAP(() => {
+        gsap.fromTo('.hero-text h1', {y: 50, opacity: 0}, {y: 0, opacity: 1, duration: 1.5, stagger: 1, ease: 'power2.inOut'});
+    })
+    
+    return (
+        <section id="hero" className="relative overflow-hidden min-h-screen">
+            {/* Video Background */}
+            <div className="absolute inset-0 z-0">
+                <video 
+                    autoPlay 
+                    loop 
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                >
+                    <source src="/videos/Pake ini.mp4" type="video/mp4" />
+                    <img src="/images/bg.png" alt="background" />
+                </video>
+                
+                {/* Edge Blur Dark - Vignette Effect */}
+                <div className="absolute inset-0 pointer-events-none"
+                     style={{
+                         background: 'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.70) 100%)'
+                     }}>
+                </div>
+                
+                {/* Overlay gelap agar teks terbaca */}
+                <div className="absolute inset-0 bg-black/50"></div>
+            </div>
 
         <div className="hero-layout relative z-10">
             {/*left: Hero content*/}
