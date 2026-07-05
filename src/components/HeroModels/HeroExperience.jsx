@@ -6,6 +6,7 @@ import { Room2 } from "./Room2";
 import { Globe } from "./Planet_earth";
 import HeroLights from "./HeroLights";
 import Particles from "./Particles";
+import Particles2 from "./Particles2";
 
 const HeroExperience = () => {
   const isTablet = useMediaQuery({ query: '(max-width: 1024px)' }); 
@@ -23,7 +24,7 @@ const HeroExperience = () => {
         />
         <HeroLights />
 
-        <Particles count={80} />
+        <Particles2 count={250} rocketCount={10} colors={["#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff", "#ff6fb7"]} />
 
         <group
         scale={isMobile? 0.7 : 1}

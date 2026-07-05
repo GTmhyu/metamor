@@ -1,18 +1,18 @@
 const navLinks = [
   {
-    name: "Work",
+    name: "Project",
     link: "#work",
   },
   {
-    name: "Experience",
+    name: "Pengalaman",
     link: "#experience",
   },
   {
-    name: "Skills",
+    name: "Keterampilan",
     link: "#skills",
   },
   {
-    name: "Testimonials",
+    name: "Testimoni",
     link: "#testimonials",
   },
 ];
@@ -59,15 +59,6 @@ const logoIconsList = [
   },
   {
     imgPath: "/images/logos/company-logo-8.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-9.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-10.png",
-  },
-  {
-    imgPath: "/images/logos/company-logo-11.png",
   },
 ];
 

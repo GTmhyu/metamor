@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -10,16 +10,17 @@ const Showcase = () => {
     const project1Ref = useRef(null);
     const project2Ref = useRef(null);
     const project3Ref = useRef(null);
+    const bgRef = useRef(null); // Reference untuk background
 
     useGSAP(() => {
-        // Animation for the main section
+        // Animation untuk section
         gsap.fromTo(
             sectionRef.current,
             { opacity: 0 },
             { opacity: 1, duration: 1.5 }
         );
 
-        // Animations for each app showcase
+        // Animasi untuk cards
         const cards = [project1Ref.current, project2Ref.current, project3Ref.current];
 
         cards.forEach((card, index) => {
@@ -41,42 +42,97 @@ const Showcase = () => {
                 }
             );
         });
+
+        if (bgRef.current) {
+            // Buat timeline untuk perubahan warna
+            const colorTimeline = gsap.timeline({
+                repeat: -1,
+                yoyo: true,
+                duration: 1
+            });
+
+            colorTimeline
+                .to(bgRef.current, {
+                    backgroundColor: '#8b5cf6', // violet
+                    duration: 1,
+                    ease: "sine.inOut"
+                })
+                .to(bgRef.current, {
+                    backgroundColor: '#3b82f6', // blue
+                    duration: 1,
+                    ease: "sine.inOut"
+                })
+                .to(bgRef.current, {
+                    backgroundColor: '#ec4899', // pink
+                    duration: 1,
+                    ease: "sine.inOut"
+                })
+                .to(bgRef.current, {
+                    backgroundColor: '#d946ef', // back to fuchsia
+                    duration: 1,
+                    ease: "sine.inOut"
+                });
+        }
+
+        // Coba: trigger berdasarkan scroll
+        ScrollTrigger.create({
+            trigger: project2Ref.current,
+            start: "top center",
+            end: "bottom center",
+            onUpdate: (self) => {
+                if (bgRef.current) {
+                    const progress = self.progress;
+                    const r = Math.floor(217 + (139 - 217) * progress);
+                    const g = Math.floor(70 + (92 - 70) * progress);
+                    const b = Math.floor(239 + (246 - 239) * progress);
+                    bgRef.current.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+                }
+            }
+        });
+
     }, []);
 
     return (
         <div id="work" ref={sectionRef} className="app-showcase">
             <div className="w-full">
-                {/* Layout konten di bawahnya */}
                 <div className="showcaselayout">
                     {/* Left */}
                     <div className="first-project-wrapper" ref={project1Ref}>
                         <div className="image-wrapper">
-                            <img src="/images/proyek1.png" alt="Ryde" />
+                            <img src="/images/Produk2.png" alt="Ryde" />
                         </div>
                         <div className="text-content">
                             <h2>Main Project</h2>
-                            <p className="text-white-50 md:text-xl"
-                            >Deskripsi proyek</p>
+                            <p className="text-white-50 md:text-xl">
+                                LED Display dengan tema dan nuansa kemerdekaan Republik Indonesia
+                            </p>
                         </div>
                     </div>
 
                     {/* Right */}
                     <div className="project-list-wrapper overflow-hidden">
                         <div className="project" ref={project2Ref}>
-                            <div className="image-wrapper bg-amber-200">
-                                <img src="/images/proyek1.png" alt="Ryde" />
+                            <div 
+                                className="image-wrapper" 
+                                ref={bgRef}
+                                style={{ backgroundColor: '#d946ef' }}
+                            >
+                                <img src="/images/Produk.png" alt="Ryde" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[98%] h-[98%] object-cover" />
                             </div>
                             <div className="text-content">
-                                <h2>Mini Project</h2>
+                                <h2>LED Pillar</h2>
                             </div>
+                        </div>
 
-                            <div className="project" ref={project3Ref}>
-                                <div className="image-wrapper bg-amber-200">
-                                    <img src="/images/proyek1.png" alt="Ryde" />
-                                </div>
-                                <div className="text-content">
-                                    <h2>Mini Project</h2>
-                                </div>
+                        <div className="project" ref={project3Ref}>
+                            <div className="image-wrapper"
+                                 ref={bgRef}
+                                 style={{ backgroundColor: '#d946ef' }}
+                            >
+                                <img src="/images/Produk1.png" alt="Ryde" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[98%] h-[98%] object-cover" />
+                            </div>
+                            <div className="text-content">
+                                <h2>LED Display</h2>
                             </div>
                         </div>
                     </div>
