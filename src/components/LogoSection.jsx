@@ -25,7 +25,7 @@ function LogoSection() {
                     <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
                 </div>
                 <p className="text-gray-500 dark:text-gray-400 mt-3 text-sm max-w-md mx-auto">
-                    Berkolaborasi industri global untuk memberikan hasil terbaik
+                    Berkolaborasi dengan industri global untuk memberikan hasil terbaik
                 </p>
             </div>
 

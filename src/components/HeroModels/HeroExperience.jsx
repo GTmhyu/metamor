@@ -24,7 +24,8 @@ const HeroExperience = () => {
         />
         <HeroLights />
 
-        <Particles2 count={250} rocketCount={10} colors={["#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff", "#ff6fb7"]} />
+        {/* <Particles2 count={250} rocketCount={10} colors={["#ff6b6b", "#ffd93d", "#6bcb77", "#4d96ff", "#ff6fb7"]} /> */}
+        <Particles count={100}/>
 
         <group
         scale={isMobile? 0.7 : 1}

@@ -29,10 +29,10 @@ const words = [
 ];
 
 const counterItems = [
-  { value: 15, suffix: "+", label: "Tahun Pengalaman" },
-  { value: 200, suffix: "+", label: "Total Client" },
-  { value: 108, suffix: "+", label: "Project yang Diselesaikan" },
-  { value: 90, suffix: "%", label: "Kepuasa Client" },
+  { value: 10, suffix: "+", label: "Tahun Pengalaman" },
+  { value: 213, suffix: "+", label: "Total Client" },
+  { value: 103, suffix: "+", label: "Project yang Diselesaikan" },
+  { value: 99, suffix: "%", label: "Kepuasa Client" },
 ];
 
 const logoIconsList = [
@@ -66,17 +66,17 @@ const abilities = [
   {
     imgPath: "/images/seo.png",
     title: "Quality Focus",
-    desc: "Delivering high-quality results while maintaining attention to every detail.",
+    desc: "Menghadirkan hasil berkualitas premium dengan ketelitian pada setiap aspek",
   },
   {
     imgPath: "/images/chat.png",
     title: "Reliable Communication",
-    desc: "Keeping you updated at every step to ensure transparency and clarity.",
+    desc: "Menyampaikan perkembangan secara berkala di setiap langkah untuk menjamin transparansi dan kejelasan penuh",
   },
   {
     imgPath: "/images/time.png",
-    title: "On-Time Delivery",
-    desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
+    title: "On-Time",
+    desc: "Mengelola proyek agar selesai tepat waktu, dengan tetap mengutamakan kualitas dan kecermatan",
   },
 ];
 

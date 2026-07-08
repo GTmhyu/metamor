@@ -10,7 +10,8 @@ const Showcase = () => {
     const project1Ref = useRef(null);
     const project2Ref = useRef(null);
     const project3Ref = useRef(null);
-    const bgRef = useRef(null); // Reference untuk background
+    const bgRef1 = useRef(null); // Untuk project2
+    const bgRef2 = useRef(null); // Untuk project3
 
     useGSAP(() => {
         // Animation untuk section
@@ -43,52 +44,65 @@ const Showcase = () => {
             );
         });
 
-        if (bgRef.current) {
-            // Buat timeline untuk perubahan warna
-            const colorTimeline = gsap.timeline({
+        // Timeline untuk bgRef1 (project2)
+        if (bgRef1.current) {
+            const colorTimeline1 = gsap.timeline({
                 repeat: -1,
                 yoyo: true,
-                duration: 1
             });
 
-            colorTimeline
-                .to(bgRef.current, {
+            colorTimeline1
+                .to(bgRef1.current, {
                     backgroundColor: '#8b5cf6', // violet
                     duration: 1,
                     ease: "sine.inOut"
                 })
-                .to(bgRef.current, {
+                .to(bgRef1.current, {
                     backgroundColor: '#3b82f6', // blue
                     duration: 1,
                     ease: "sine.inOut"
                 })
-                .to(bgRef.current, {
+                .to(bgRef1.current, {
                     backgroundColor: '#ec4899', // pink
                     duration: 1,
                     ease: "sine.inOut"
                 })
-                .to(bgRef.current, {
+                .to(bgRef1.current, {
                     backgroundColor: '#d946ef', // back to fuchsia
                     duration: 1,
                     ease: "sine.inOut"
                 });
         }
 
-        // Coba: trigger berdasarkan scroll
-        ScrollTrigger.create({
-            trigger: project2Ref.current,
-            start: "top center",
-            end: "bottom center",
-            onUpdate: (self) => {
-                if (bgRef.current) {
-                    const progress = self.progress;
-                    const r = Math.floor(217 + (139 - 217) * progress);
-                    const g = Math.floor(70 + (92 - 70) * progress);
-                    const b = Math.floor(239 + (246 - 239) * progress);
-                    bgRef.current.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
-                }
-            }
-        });
+        // Timeline untuk bgRef2 (project3) - dengan tempo yang sama
+        if (bgRef2.current) {
+            const colorTimeline2 = gsap.timeline({
+                repeat: -1,
+                yoyo: true,
+            });
+
+            colorTimeline2
+                .to(bgRef2.current, {
+                    backgroundColor: '#8b5cf6', // violet
+                    duration: 1,
+                    ease: "sine.inOut"
+                })
+                .to(bgRef2.current, {
+                    backgroundColor: '#3b82f6', // blue
+                    duration: 1,
+                    ease: "sine.inOut"
+                })
+                .to(bgRef2.current, {
+                    backgroundColor: '#ec4899', // pink
+                    duration: 1,
+                    ease: "sine.inOut"
+                })
+                .to(bgRef2.current, {
+                    backgroundColor: '#d946ef', // back to fuchsia
+                    duration: 1,
+                    ease: "sine.inOut"
+                });
+        }
 
     }, []);
 
@@ -102,7 +116,7 @@ const Showcase = () => {
                             <img src="/images/Produk2.png" alt="Ryde" />
                         </div>
                         <div className="text-content">
-                            <h2>Main Project</h2>
+                            <h2>Project Utama</h2>
                             <p className="text-white-50 md:text-xl">
                                 LED Display dengan tema dan nuansa kemerdekaan Republik Indonesia
                             </p>
@@ -112,27 +126,28 @@ const Showcase = () => {
                     {/* Right */}
                     <div className="project-list-wrapper overflow-hidden">
                         <div className="project" ref={project2Ref}>
-                            <div 
-                                className="image-wrapper" 
-                                ref={bgRef}
+                            <div
+                                className="image-wrapper"
+                                ref={bgRef1}
                                 style={{ backgroundColor: '#d946ef' }}
                             >
                                 <img src="/images/Produk.png" alt="Ryde" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[98%] h-[98%] object-cover" />
                             </div>
                             <div className="text-content">
-                                <h2>LED Pillar</h2>
+                                <h2>Pavilion of Lights</h2>
                             </div>
                         </div>
 
                         <div className="project" ref={project3Ref}>
-                            <div className="image-wrapper"
-                                 ref={bgRef}
-                                 style={{ backgroundColor: '#d946ef' }}
+                            <div
+                                className="image-wrapper"
+                                ref={bgRef2}
+                                style={{ backgroundColor: '#d946ef' }}
                             >
                                 <img src="/images/Produk1.png" alt="Ryde" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[98%] h-[98%] object-cover" />
                             </div>
                             <div className="text-content">
-                                <h2>LED Display</h2>
+                                <h2>Sculpture Park at Night</h2>
                             </div>
                         </div>
                     </div>
