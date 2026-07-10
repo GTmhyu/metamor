@@ -140,7 +140,7 @@ const expCards = [
   {
     review: "Merupakan project TKDN yang sukses kami realisasikan berdasarkan imajinasi dan konsep yang dimiliki oleh client.",
     imgPath: "/images/exp1.png",
-    logoPath: "/images/logo1.png",
+    logoPath: "/images/logo2.png",
     title: "Sculpture Park at Night",
     date: "17 January 2026 ",
     responsibilities: [
@@ -150,9 +150,9 @@ const expCards = [
     ],
   },
   {
-    review: "Belum tau",
-    imgPath: "/images/exp2.png",
-    logoPath: "/images/logo2.png",
+    review: "Sebuah taman dalam ruangan yang menyegarkan dengan konsep modern, dipadukan dengan pencahayaan LED memukau yang menciptakan suasana kontemporer yang menenangkan",
+    imgPath: "/images/exp2.jpg",
+    logoPath: "/images/logo1.png",
     title: "Project",
     date: "June 2020 - December 2023",
     responsibilities: [
@@ -163,8 +163,8 @@ const expCards = [
   },
   {
     review: ".",
-    imgPath: "/images/exp3.png",
-    logoPath: "/images/logo3.png",
+    imgPath: "/images/exp3.jpg",
+    logoPath: "/images/logo2.png",
     title: "React Native Developer",
     date: "March 2019 - May 2020",
     responsibilities: [
